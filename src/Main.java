@@ -19,8 +19,8 @@ public class Main {
         byte years = scanner.nextByte();
         int numbersOfPayments = years * MONTH_IN_YEAR;
 
-        double morgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numbersOfPayments)  / (Math.pow(1 + monthlyInterest, numbersOfPayments) - 1));
-        String morgageFormatted = NumberFormat.getCurrencyInstance().format( morgage );
-        System.out.println("Morgage: " + morgageFormatted);
+        double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numbersOfPayments)  / (Math.pow(1 + monthlyInterest, numbersOfPayments) - 1));
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format( mortgage );
+        System.out.println("Mortgage: " + mortgageFormatted);
     }
 }
