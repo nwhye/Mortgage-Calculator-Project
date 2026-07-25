@@ -1,6 +1,6 @@
 public class MortgageCalculator {
-    public final static byte MONTH_IN_YEAR = 12;
-    public final static byte PERCENT = 100;
+    private final static byte MONTHS_IN_YEAR = 12;
+    private final static byte PERCENT = 100;
 
     private int principal;
     private float annualInterest;
@@ -33,15 +33,18 @@ public class MortgageCalculator {
         return balance;
     }
 
-    public short getYears() {  // other classes uses -> public
-        return years;
+    public double[] getRemainingBalances() {
+        var balances = new double[getNumberOfPayments()];
+        for (short month = 1; month <= getNumberOfPayments(); month++)
+            balances[month - 1] = calculateBalance(month);
+        return balances;
     }
 
     private int getNumberOfPayments() {
-        return years * MONTH_IN_YEAR;
+        return years * MONTHS_IN_YEAR;
     }
 
     private float getMonthlyInterest() {
-        return annualInterest / PERCENT / MONTH_IN_YEAR;
+        return annualInterest / PERCENT / MONTHS_IN_YEAR;
     }
 }
